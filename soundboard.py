@@ -16,3 +16,4 @@ class SoundBoard:
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy() == True:
             continue
+        pygame.mixer.music.stop()
