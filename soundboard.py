@@ -1,6 +1,7 @@
 import os
-import random
 from playsound import playsound
+import pygame
+
 
 
 class SoundBoard:
@@ -9,6 +10,9 @@ class SoundBoard:
     def __init__(self) -> None:        
         self.sounds = os.listdir('./sounds')
     
-    def play_random_sound(self) -> None:        
-        sound_to_play = f'./sounds/{random.choice(self.sounds)}'
-        playsound(sound = sound_to_play)
+    def play_sound(self) -> None:
+        pygame.mixer.init()
+        pygame.mixer.music.load("./sounds/alweer-een-winnaar.mp3")
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy() == True:
+            continue
